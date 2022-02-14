@@ -1,0 +1,37 @@
+﻿@model List<InvTransaction>
+
+
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Transaction Date111</th>
+        <th>Transaction Type</th>
+        <th>PartNumber</th>
+        <th>Qty</th>
+        <th>Document No</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.TransactionDate.ToString("MM-dd-yyyy")
+            </td>
+            <td>
+                @item.TransactionType
+            </td>
+            <td>
+                @item.PartNumber
+            </td>
+            <td>
+                @item.Qty
+            </td>
+            <td>
+                @item.DocNo
+            </td>
+        </tr>
+    }
+</table>

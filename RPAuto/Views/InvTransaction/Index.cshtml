@@ -1,0 +1,44 @@
+﻿@model List<InvTransaction>
+
+@{
+    ViewBag.Title = "InvTransaction";
+}
+
+@section ScriptSection {
+    <script>
+        function ConfirmDelete() {
+            if (confirm("Are you sure you want to delete?") == false) {
+                event.preventDefault();   // not working in IE
+                event.stopPropagation();  // not working in Firefox
+                return false;             // working in IE
+            }
+        }
+
+    </script>
+}
+
+<h2>Inventory Transaction</h2>
+
+<span style="color:red">@TempData["Msg"]</span>
+<br />
+<p>
+    <a asp-controller="InvTransaction" asp-action="Create">Create New</a>
+</p>
+<p>
+    <a asp-controller="InvTransaction" asp-action="SortDate">Sort by Date</a>
+</p>
+<p>
+    <a asp-controller="InvTransaction" asp-action="PrintTransactions">Print Transactions!</a>
+</p>
+
+
+@{
+    // TODO P06 Task 1-2 Refer to MugOrder. Modify the display so that name of pokedex and usercode can be shown
+}
+<div class="col-6">
+    <div id="divUpdatable" style="border:double">
+        <table class="table">
+            <partial name="_TransPart" />
+        </table>
+    </div>
+</div>

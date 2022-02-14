@@ -1,0 +1,87 @@
+﻿@model List<Part>
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Part List</title>
+    <style>
+        .label {
+            font-size: large;
+            font-weight: bold;
+            font-family: Arial;
+        }
+
+        .item {
+            font-size: large;
+            font-family: Arial;
+        }
+
+        .lineitem {
+            height: 1cm;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <table style="border-width:thick;width:100%">
+            <tr>
+                <td>
+                    <h1>RP Auto Part Sheet</h1>
+                    <address>
+                        <p>
+                            <span style="font-size:x-large;font-family:'Bookman Old Style'">RP AUTO</span><br />
+                            We server anyone, two or three!<br />69420 Singapore 
+                        </p>
+                    </address>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <hr />
+    <article style="border:solid">
+        <table style="width:100%">
+            <tr>
+                <td>
+                    @foreach (var item in Model)
+                    {
+                        <table style="position:relative;left:2cm">
+                            <tr class="lineitem">
+                                <td class="label">Part Number</td>
+                                <td class="label">:</td>
+                                <td class="item">@item.PartNumber</td>
+                            </tr>
+                            <tr class="lineitem">
+                                <td class="label">Title</td>
+                                <td class="label">:</td>
+                                <td class="item">@item.Title</td>
+                            </tr>
+                            <tr class="lineitem">
+                                <td class="label">Overview</td>
+                                <td class="label">:</td>
+                                <td class="item">@item.Overview</td>
+                            </tr>
+                            <tr class="lineitem">
+                                <td class="label">Category ID</td>
+                                <td class="label">:</td>
+                                <td class="item">@item.CategoryId</td>
+                            </tr>
+                            <tr class="lineitem">
+                                <td class="label">Qty</td>
+                                <td class="label">:</td>
+                                <td class="item">@item.Qty</td>
+                            </tr>
+
+                        </table>
+                        <p>--------------------------------------------------------</p>
+                    }
+                </td>
+            </tr>
+        </table>
+    </article>
+    <aside>
+    </aside>
+</body>
+</html>  

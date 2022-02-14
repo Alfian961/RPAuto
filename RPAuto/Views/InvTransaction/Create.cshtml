@@ -1,0 +1,80 @@
+﻿@model InvTransaction
+@{
+    ViewData["Title"] = "InvTransaction";
+
+    var TransID = new[]
+        {
+new { value=0, text="Stock In"},
+new { value=1, text="Stock Out"},
+};
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="container">
+    <form asp-controller="InvTransaction" asp-action="Create">
+        <div class="form-group row">
+            <label class="control-label col-3 text-sm-right" asp-for="TransactionDate">Transaction Date : </label>
+            <div class="col-5">
+                <input asp-for="TransactionDate" class="form-control" />
+            </div>
+
+            <div class="col-3">
+                <span asp-validation-for="TransactionDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-3 text-sm-right" asp-for="TransactionType">Transaction Type: </label>
+            <div class="col-4">
+                @foreach (var item in TransID)
+                {
+                    <input type="radio" asp-for="TransactionType" value="@item.value" /> @item.text
+                }
+            </div>
+        </div>
+
+            <div class="col-3">
+                <span asp-validation-for="TransactionDate" class="text-danger"></span>
+            </div>
+        <div class="form-group row">
+            <label class="control-label col-3 text-sm-right" asp-for="PartNumber">Part Number : </label>
+            <div class="col-5">
+                <input asp-for="PartNumber" class="form-control" />
+            </div>
+
+            <div class="col-3">
+                <span asp-validation-for="PartNumber" class="text-danger"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="control-label col-3 text-sm-right" asp-for="Qty">Qty : </label>
+            <div class="col-5">
+                <input asp-for="Qty" class="form-control" />
+            </div>
+
+            <div class="col-3">
+                <span asp-validation-for="Qty" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-3 text-sm-right" asp-for="DocNo">Document Number : </label>
+            <div class="col-5">
+                <input asp-for="DocNo" class="form-control" />
+            </div>
+
+            <div class="col-3">
+                <span asp-validation-for="DocNo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-3 col-6">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+        </div>
+
+
+
+    </form>
+</div>

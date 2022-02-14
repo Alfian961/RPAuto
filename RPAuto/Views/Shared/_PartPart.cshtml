@@ -1,0 +1,35 @@
+﻿@model List<Part>
+
+
+<tr>
+    <th>Part Number</th>
+    <th>Title</th>
+    <th>Overview</th>
+    <th>Category ID</th>
+    <th>Qty</th>
+    <th>Actions</th>
+</tr>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @item.PartNumber
+        </td>
+        <td>
+            @item.Title
+        </td>
+        <td>
+            @item.Overview
+        </td>
+        <td>
+            @item.CategoryId
+        </td>
+        <td>
+            @item.Qty
+        </td>
+        <td>
+            <a asp-action="Update" asp-route-id="@item.PartNumber">Update</a>
+            <a asp-action="Delete" asp-route-id="@item.PartNumber" onclick="return ConfirmDelete()">Delete</a>
+        </td>
+    </tr>
+}
